@@ -10,7 +10,11 @@ export const Main = () => {
     <div className={styles.main}>
       <Navbar
         logo="markall"
-        linksArr={["services", "pricing", "about us"]}
+        linksArr={[
+          { text: "services" },
+          { text: "pricing" },
+          { text: "about us" },
+        ]}
         btn="get started"
       />
       <MainContent />

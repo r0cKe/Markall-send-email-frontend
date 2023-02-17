@@ -23,6 +23,7 @@
 .contactItem h2 {
   display: flex;
   gap: 8px;
+  align-items: center;
   font-size: 32px;
   font-weight: 600;
   color: "4F4F4F";

@@ -10,12 +10,18 @@ const Navbar = ({ logo, linksArr, btn }) => {
         {linksArr.map((link) => {
           return (
             <li key={link} className={styles.navLink}>
-              <a href="#">{link}</a>
+              <Link href={link.href ? href : "/"} prefetch={false}>
+                {link.text}
+              </Link>
             </li>
           );
         })}
       </ul>
-      <Link href="#" className={`${styles.gsbtn} ${styles.btn}`}>
+      <Link
+        href="/"
+        prefetch={false}
+        className={`${styles.gsbtn} ${styles.btn}`}
+      >
         {btn}
       </Link>
     </div>

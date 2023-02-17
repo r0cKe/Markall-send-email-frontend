@@ -5,7 +5,6 @@ import InputContext from "./context/InputContext";
 import InputComponent from "./InputComponent";
 
 const ContactForm = () => {
-  
   // ----- Using context ------
   const context = useContext(InputContext);
   const { userInfo, setUserInfo } = context;
@@ -18,6 +17,15 @@ const ContactForm = () => {
   // ------------ Handle Form Submit ---------
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      userInfo.name === "" ||
+      userInfo.email === "" ||
+      userInfo.phone === ""
+    ) {
+      alert("Please fill all the ( * ) marked fields.");
+      return;
+    }
 
     const data = JSON.stringify(userInfo);
 
@@ -45,12 +53,8 @@ const ContactForm = () => {
       });
       alert(`Submitted successfully :)`);
     } else {
-      if (response.data.reason === "error") {
-        console.log(response.data.error);
-        alert("Some error occured :(");
-      } else {
-        alert("Please fill all the ( * ) marked fields.");
-      }
+      console.log(response.data.error);
+      alert("Some error occured :(");
     }
   };
 

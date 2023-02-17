@@ -23,7 +23,13 @@ const AutomationSection = ({
         <h3>{title}</h3>
         <p>{description}</p>
         <span>
-          Learn More <i className="fa-solid fa-right-long"></i>
+          Learn More{" "}
+          <Image
+            src="/assets/icons/right-arrow.svg"
+            width="32"
+            height="32"
+            alt="right-arrow icon"
+          />
         </span>
       </div>
       <div style={{ display: "flex" }}>

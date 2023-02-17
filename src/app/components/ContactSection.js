@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import Image from "next/image";
 import React from "react";
 import styles from "../styles/contact.module.css";
 import ContactForm from "./ContactForm";
@@ -9,7 +10,7 @@ const ContactSection = () => {
     {
       title: "Location",
       description: "Ghaziabad, Uttar Pradesh",
-      icon: "map-marker",
+      icon: "location-point",
     },
     { title: "Mail us", description: "info@markall.in", icon: "globe" },
   ];
@@ -22,10 +23,12 @@ const ContactSection = () => {
             return (
               <div key={data.title} className={styles.contactItem}>
                 <h2>
-                  <i
-                    className={`uil uil-${data.icon}`}
-                    style={{ color: "#2F80ED" }}
-                  ></i>
+                  <Image
+                    src={`/assets/icons/${data.icon}.svg`}
+                    width="32"
+                    height="32"
+                    alt={`${data.icon} icon`}
+                  />
                   {data.title}
                 </h2>
                 <p>{data.description}</p>

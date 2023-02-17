@@ -28,11 +28,16 @@ const MainContent = () => {
         </div>
       </div>
       <div style={{ display: "flex", gap: "1.5rem" }}>
-        <Link href="#" className={`${styles.gsbtn} ${styles.btn}`}>
+        <Link href="/" prefetch={false} className={`${styles.gsbtn} ${styles.btn}`}>
           get started
         </Link>
-        <Link href="#" className={`${styles.wdbtn} ${styles.btn}`}>
-          <i className="fa-solid fa-play"></i> watch demo
+        <Link href="/" prefetch={false} className={`${styles.wdbtn} ${styles.btn}`}>
+        <Image
+            src="/assets/icons/play.svg"
+            width="13"
+            height="17"
+            alt="right-arrow icon"
+          /> watch demo
         </Link>
       </div>
     </div>
