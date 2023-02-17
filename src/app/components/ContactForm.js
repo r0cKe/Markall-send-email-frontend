@@ -1,60 +1,49 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/contact.module.css";
+import InputContext from "./context/InputContext";
 import InputComponent from "./InputComponent";
 
 const ContactForm = () => {
-  const [info, setInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  
+  // ----- Using context ------
+  const context = useContext(InputContext);
+  const { userInfo, setUserInfo } = context;
 
   // ---------- Server endpoint ------------
 
   // For Development
   // const ENDPOINT = "http://localhost:3500";
 
-  const ENDPOINT = "https://sendemail-backend.onrender.com";
-
-  const debouncer = function (fn, d) {
-    let timer;
-    return function (...args) {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        fn.apply(this, args);
-      }, d);
-    };
-  };
-
-  // ---------- Handle input change-----------
-  const handleChange = (e) => {
-    const name = e.target.id;
-    const value = e.target.value;
-    // console.log(value);
-    setInfo((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-
-  const debounceHandleChange = debouncer(handleChange, 500);
 
   // ------------ Handle Form Submit ---------
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = JSON.stringify(info);
+    const data = JSON.stringify(userInfo);
 
     const headers = {
       "content-type": "application/json",
     };
 
-    const response = await axios.post(`${ENDPOINT}/sendemail`, data, {
-      headers,
-    });
+    // Post request to server
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_ENDPOINT}/sendemail`,
+      data,
+      {
+        headers,
+      }
+    );
 
-    if (response.data.success) {
+    const { success } = response.data;
+
+    if (success) {
+      setUserInfo({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
       alert(`Submitted successfully :)`);
     } else {
       if (response.data.reason === "error") {
@@ -79,34 +68,21 @@ const ContactForm = () => {
       {/* --------- Input Container --------- */}
 
       <div>
-        <InputComponent
-          label="Name"
-          type="text"
-          required={true}
-          name="name"
-          handleChange={debounceHandleChange}
-        />
+        <InputComponent label="Name" type="text" required={true} name="name" />
 
         <InputComponent
           label="Email"
           type="email"
           required={true}
           name="email"
-          handleChange={debounceHandleChange}
         />
         <InputComponent
           label="Phone"
           type="number"
           required={true}
           name="phone"
-          handleChange={debounceHandleChange}
         />
-        <InputComponent
-          label="Message"
-          type="text"
-          name="message"
-          handleChange={debounceHandleChange}
-        />
+        <InputComponent label="Message" type="text" name="message" />
 
         {/* ------ Submit Button------- */}
         <input

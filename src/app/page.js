@@ -4,12 +4,13 @@ import Section from "./components/Section";
 import AutomationSection from "./components/AutomationSection";
 import TestimonialDescription from "./components/TestimonialDescription";
 import ContactSection from "./components/ContactSection";
+import InputState from "./components/context/InputState";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <>
+    <InputState>
       <Main />
       <Section
         heading="our features"
@@ -34,6 +35,6 @@ export default function Home() {
         description={<TestimonialDescription />}
       />
       <ContactSection />
-    </>
+    </InputState>
   );
 }
