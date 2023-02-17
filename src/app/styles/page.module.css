@@ -1,0 +1,194 @@
+.main {
+  width: 100vw;
+  height: 1024px;
+  color: white;
+  background-color: black;
+  border-radius: 0 0 0 100px;
+  padding: 22px 41px 0;
+  margin-bottom: 10px;
+}
+
+/* ------------- Navbar ------------- */
+
+.navbar {
+  display: flex;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* --------- Nav links -------- */
+
+.navLinks {
+  display: flex;
+  list-style-type: none;
+  font-size: var(--small-font-size);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.navLink {
+  padding: 0 8px;
+}
+
+.navLink:hover {
+  color: var(--green-color);
+}
+
+/* ---------- Get started ---------- */
+
+.btn {
+  cursor: pointer;
+  font-size: var(--small-font-size);
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.gsbtn {
+  background-color: var(--green-color);
+  color: black;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.gsbtn:hover {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
+/* --------- Watch demo ----------- */
+
+.wdbtn {
+  border: 1px solid white;
+  transition: all 0.3s;
+}
+
+.wdbtn:hover {
+  background-color: #ff725c;
+  border-color: black;
+}
+
+.wdbtn i {
+  margin-right: 10px;
+}
+
+/* -------------- Main content -------------- */
+
+.mainContent {
+  margin-top: 198px;
+}
+
+.mainContent h1 {
+  font-size: var(--xl-font-size);
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
+.mainContent h1 span {
+  position: relative;
+  border-bottom: 1px solid white;
+}
+
+.mainContent h1 span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.mainContent p {
+  font-size: var(--medium-font-size);
+  font-weight: 400;
+}
+
+.marketingImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.marketingImg::after {
+  content: "";
+  position: absolute;
+  width: 552px;
+  height: 371px;
+  border: 1px solid white;
+  left: 52px;
+  top: -30px;
+}
+
+/* --------------- Section -------------- */
+
+.section {
+  padding: 50px 30px 40px 35px;
+  margin-bottom: 40px;
+}
+
+.section .heading {
+  margin-bottom: 10px;
+  font-size: var(--medium-font-size);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.section .title {
+  font-size: 50px;
+  font-weight: 700;
+  padding-bottom: 25px;
+  border-bottom: 1px solid black;
+}
+
+@media screen and (min-width: 1500px) {
+  .mainContent h1 {
+    font-size: 82px;
+  }
+
+  .mainContent p {
+    font-size: 32px;
+  }
+
+  .mainContent div:nth-child(1) {
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mainContent {
+    margin-top: 100px;
+  }
+  .mainContent div:nth-child(1) {
+    flex-direction: column;
+  }
+
+  .mainContent div:nth-child(2) {
+    justify-content: center;
+    margin-bottom: 1.3rem;
+  }
+
+  .mainContent p {
+    margin-bottom: 2rem;
+  }
+
+  .marketingImg image {
+    width: 50%;
+    height: 50%;
+  }
+
+  .marketingImg::after {
+    left: 25%;
+  }
+}

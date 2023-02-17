@@ -1,0 +1,49 @@
+.automationSection {
+  display: flex;
+  font-size: 30px;
+  gap: 19rem;
+  justify-content: space-between;
+  padding: 40px 45px 85px;
+  border-radius: 20px;
+  margin: 0 30px 80px 35px;
+}
+
+.automationSection h3 {
+  max-width: 360px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.automationSection p {
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.automationSection span {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 0;
+  font-weight: 500;
+  transition: gap 0.3s;
+}
+
+.automationSection span:hover {
+  gap: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .automationSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .automationSection div:nth-child(2) {
+    justify-content: flex-end;
+  }
+}
+
+/* @media screen and (max-width: 770px) {
+} */
