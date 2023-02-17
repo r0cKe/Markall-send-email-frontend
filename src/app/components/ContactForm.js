@@ -55,10 +55,14 @@ const ContactForm = () => {
     });
 
     if (response.data.success) {
-      alert(`Email sent`);
+      alert(`Submitted successfully :)`);
     } else {
-      console.log(response.data.error);
-      alert("Please fill all the ( * ) marked fields.");
+      if (response.data.reason === "error") {
+        console.log(response.data.error);
+        alert("Some error occured :(");
+      } else {
+        alert("Please fill all the ( * ) marked fields.");
+      }
     }
   };
 
