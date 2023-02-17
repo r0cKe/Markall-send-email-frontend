@@ -9,7 +9,7 @@ const Navbar = ({ logo, linksArr, btn }) => {
       <ul className={styles.navLinks}>
         {linksArr.map((link) => {
           return (
-            <li key={link} className={styles.navLink}>
+            <li key={link.text} className={styles.navLink}>
               <Link href={link.href ? href : "/"} prefetch={false}>
                 {link.text}
               </Link>

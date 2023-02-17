@@ -14,6 +14,8 @@ const ContactForm = () => {
   // For Development
   // const ENDPOINT = "http://localhost:3500";
 
+  console.log(process.env.NEXT_PUBLIC_ENDPOINT);
+
   // ------------ Handle Form Submit ---------
   const handleSubmit = async (e) => {
     e.preventDefault();
